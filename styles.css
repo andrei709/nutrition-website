@@ -78,6 +78,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     height: 4rem;
+    padding: 0 1rem;
 }
 
 .logo {
@@ -85,31 +86,6 @@ h3 {
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
-}
-
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 15px;
-    z-index: 1001;
-    margin: -15px;
-    touch-action: manipulation;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.mobile-menu-btn span {
-    width: 30px;
-    height: 3px;
-    background-color: var(--primary-color);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-    transform-origin: center;
 }
 
 .nav-links {
@@ -129,12 +105,41 @@ h3 {
     color: var(--primary-color);
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    z-index: 1001;
+    margin: -15px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Mobile Navigation */
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
     }
 
     .nav-links {
+        display: flex;
         position: fixed;
         top: 0;
         right: -100%;
