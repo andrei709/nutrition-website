@@ -202,6 +202,7 @@ h3 {
 
     .mobile-menu-btn {
         display: block;
+        right: 1rem;
     }
 
     .mobile-menu-btn.active span:first-child {
@@ -315,6 +316,12 @@ h3 {
     display: flex;
     gap: 1rem;
     justify-content: center;
+}
+
+.cta-buttons .btn {
+    flex: 1;
+    text-align: center;
+    max-width: 250px; /* Optional: add a max-width to prevent them from getting too wide on large screens */
 }
 
 .btn {
