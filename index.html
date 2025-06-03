@@ -68,22 +68,29 @@
                 </div>
                 <div class="about-text-content">
                     <div class="about-text">
-                        <p>Bine ai venit!</p>
-                        <p>Sunt Diana, Nutriwell Coach de peste 4 ani, iar misiunea mea e să te ajut să ajungi la cea mai bună formă a ta, cu blândețe, echilibru și alegeri alimentare care chiar fac diferența. Cred în puterea mâncării de a susține nu doar silueta, ci și energia, starea de bine și sănătatea noastră pe termen lung — inclusiv la bătrânețe.</p>
-                        <p>Calătoria mea a început în momentul în care a trebuit eu însămi să slăbesc 20 de kilograme. Am cerut ajutorul unui nutriționist care m-a tratat cu empatie și înțelegere. Atunci mi s-a aprins scânteia: am simțit că vreau, la rândul meu, să dau mai departe această experiență și să sprijin oameni în drumul lor spre schimbare.</p>
-                        <p>Îmi place să lucrez cu oamenii, să-i ascult, să-i cunosc. Am învățat enorm de la fiecare client care a avut încredere în mine. Fiecare poveste este unică și fiecare progres, oricât de mic, merită celebrat.</p>
-                        <p>Sunt pasionată de nutriția aplicată, de tot ce ține de longevitate și de cum putem trăi mai bine și mai sănătos în mod sustenabil. Mă documentez constant, pentru că îmi doresc ca fiecare recomandare pe care o ofer să fie bazată pe știință și adaptată omului din fața mea.</p>
-                        <p>Pentru mine, nutriția merge mână în mână cu mișcarea. Îmi plac plimbările, joggingul și orice formă de mișcare care mă face să mă simt bine în corpul meu. Visez ca și la 100 de ani să pot merge cu pași siguri prin parc, cu mintea limpede și zâmbetul pe buze.</p>
-                        <p>Când nu citesc despre mâncare, mă găsești pe munte, printre paginile unei cărți bune sau ascultând viniluri care îmi aduc bucurie.</p>
-                        <p>Dacă simți că a venit timpul să faci o schimbare care chiar contează, te aștept cu drag să începem împreună.</p>
+                        <div class="about-text-visible">
+                            <p>Bine ai venit!</p>
+                            <p>Sunt Diana, Nutriwell Coach de peste 4 ani, iar misiunea mea e să te ajut să ajungi la cea mai bună formă a ta, cu blândețe, echilibru și alegeri alimentare care chiar fac diferența. Cred în puterea mâncării de a susține nu doar silueta, ci și energia, starea de bine și sănătatea noastră pe termen lung — inclusiv la bătrânețe.</p>
+                            <p>Calătoria mea a început în momentul în care a trebuit eu însămi să slăbesc 20 de kilograme. Am cerut ajutorul unui nutriționist care m-a tratat cu empatie și înțelegere. Atunci mi s-a aprins scânteia: am simțit că vreau, la rândul meu, să dau mai departe această experiență și să sprijin oameni în drumul lor spre schimbare.</p>
+                            <p>Îmi place să lucrez cu oamenii, să-i ascult, să-i cunosc. Am învățat enorm de la fiecare client care a avut încredere în mine. Fiecare poveste este unică și fiecare progres, oricât de mic, merită celebrat.</p>
+                        </div>
+                        <div class="about-text-hidden">
+                            <p>Sunt pasionată de nutriția aplicată, de tot ce ține de longevitate și de cum putem trăi mai bine și mai sănătos în mod sustenabil. Mă documentez constant, pentru că îmi doresc ca fiecare recomandare pe care o ofer să fie bazată pe știință și adaptată omului din fața mea.</p>
+                            <p>Pentru mine, nutriția merge mână în mână cu mișcarea. Îmi plac plimbările, joggingul și orice formă de mișcare care mă face să mă simt bine în corpul meu. Visez ca și la 100 de ani să pot merge cu pași siguri prin parc, cu mintea limpede și zâmbetul pe buze.</p>
+                            <p>Când nu citesc despre mâncare, mă găsești pe munte, printre paginile unei cărți bune sau ascultând viniluri care îmi aduc bucurie.</p>
+                            <p>Dacă simți că a venit timpul să faci o schimbare care chiar contează, te aștept cu drag să începem împreună.</p>
+                        </div>
+                        <button class="read-more-btn">Citește mai mult</button>
                     </div>
                     <div class="skills">
                         <h3>Specializări</h3>
                         <div class="skill-tags">
+                            <span class="skill-tag">Alimentație sănătatoasa</span>
                             <span class="skill-tag">Educatie nutritionala</span>
                             <span class="skill-tag">Nutritie pentru longevitate</span>
                             <span class="skill-tag">Managementul Greutății</span>
                             <span class="skill-tag">Nutritie pentru vegani/vegetarieni</span>
+                            
                             
                         </div>
                     </div>
@@ -430,6 +437,11 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -591,6 +603,45 @@
                 question.addEventListener('click', () => {
                     const faqItem = question.parentElement;
                     faqItem.classList.toggle('active');
+                });
+            });
+
+            // Read More/Read Less functionality
+            const readMoreBtn = document.querySelector('.read-more-btn');
+            const aboutTextVisible = document.querySelector('.about-text-visible');
+            const aboutTextHidden = document.querySelector('.about-text-hidden');
+
+            if (readMoreBtn && aboutTextVisible && aboutTextHidden) {
+                let isVisible = false;
+
+                readMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (isVisible) {
+                        aboutTextHidden.style.display = 'none';
+                        readMoreBtn.textContent = 'Citește mai mult';
+                    } else {
+                        aboutTextHidden.style.display = 'block';
+                        readMoreBtn.textContent = 'Citește mai puțin';
+                    }
+                    isVisible = !isVisible;
+                });
+            }
+
+            // Scroll to Top functionality
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 600) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });
